@@ -13,7 +13,6 @@ export async function getCityGeocodingData(city: string): Promise<GeocodingRespo
 
         
     } catch (error: unknown) {
-        console.error("Error fetching geocoding data:", error);
         if(axios.isAxiosError(error)) {
             return {
                 status: error.response?.status || 500,
