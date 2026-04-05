@@ -22,7 +22,7 @@ export type Location = {
 }
 
 export type GeocodingData = {
-    results: Location[];
+    results?: Location[];
     generationtime_ms: number
 }
 
