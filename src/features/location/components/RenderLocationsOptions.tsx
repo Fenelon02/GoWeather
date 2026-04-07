@@ -7,7 +7,7 @@ import { Location } from "../types";
 
 export function RenderLocationsOptions() {
     const { setSelectedCity, getSelectedCity } = useSelectedCity();
-    const { data: geocodingData, isLoading, error } = useSearchGeocodingLocation();
+    const { data: geocodingData, isLoading, error, setSeacrhCityGeocodingData } = useSearchGeocodingLocation();
 
     useEffect(() => {
         if(!getSelectedCity()) {
@@ -45,8 +45,11 @@ export function RenderLocationsOptions() {
             {geocodingData?.results &&  (
                 <div>
                     {geocodingData.results.map((loc, index) => (
-                        <div key={index} className="m-4 border border-amber-950 max-w-[20vw] cursor-pointer " onClick={() => setSelectedCity(loc)}>
-                            <p>{loc.name}, {loc.country}</p>
+                        <div key={index} className="m-4 border border-amber-950 max-w-[20vw] cursor-pointer " onClick={() => {
+                                setSelectedCity(loc);
+                                setSeacrhCityGeocodingData('')
+                            }}>
+                            <p>{loc.name} - {loc.country}</p>
                         </div>
                     ))}
                 </div>
