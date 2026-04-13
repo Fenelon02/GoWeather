@@ -2,6 +2,7 @@ import {
   Sun,
   Cloud,
   CloudSun,
+  CloudMoon,
   CloudRain,
   CloudLightning,
   CloudFog,
@@ -11,7 +12,8 @@ import { WeatherIconType } from '../types';
 
 const weatherIcons: WeatherIconType = {
   clear: Sun,
-  partlyCloudy: CloudSun,
+  partlyCloudyDay: CloudSun,
+  partlyCloudyNigth: CloudMoon,
   cloudy: Cloud,
   rain: CloudRain,
   storm: CloudLightning,
@@ -27,7 +29,10 @@ export function GetWeatherIcon() {
             return weatherIcons.night;
         }
         if (condition <= 30) {
-            return weatherIcons.partlyCloudy;
+            if(!isDaytime){
+                return weatherIcons.partlyCloudyNigth;
+            }
+            return weatherIcons.partlyCloudyDay;
         }
         if (condition <= 60) {
             return weatherIcons.cloudy;
