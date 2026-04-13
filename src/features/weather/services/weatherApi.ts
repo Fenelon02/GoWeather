@@ -11,8 +11,8 @@ export async function getWeather(latitude: number, longitude: number): Promise<W
             latitude: latitude,
             longitude: longitude,
             daily: ["temperature_2m_max", "temperature_2m_min", "sunrise", "sunset", "uv_index_max", "precipitation_probability_max"],
-            hourly: "temperature_2m",
-            current: ["temperature_2m", "relative_humidity_2m", "apparent_temperature", "wind_speed_10m", "cloud_cover"],
+            hourly: ["temperature_2m", "precipitation_probability"],
+            current: ["temperature_2m", "relative_humidity_2m", "apparent_temperature", "wind_speed_10m", "cloud_cover", "precipitation"],
             timezone: "auto"
         };
         
