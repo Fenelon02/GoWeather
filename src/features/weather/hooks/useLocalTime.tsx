@@ -12,7 +12,7 @@ export function useLocalTime() {
         if (selectedCity?.timezone) {
             const date = new Date();
             const zoned = toZonedTime(date, selectedCity.timezone);
-            setLocalTime(format(zoned, 'HH:mm:ss', { timeZone: selectedCity.timezone }));
+            setLocalTime(format(zoned, 'yyyy-MM-dd HH:mm', { timeZone: selectedCity.timezone }));
         }
     }, [selectedCity?.timezone]);
 
