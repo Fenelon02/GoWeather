@@ -5,9 +5,9 @@ export function RenderMap() {
     useMaps();
 
     return (
-        <div className="bg-black border rounded-2xl p-2 m-4 max-w-fit">
+        <div className="bg-white/20 rounded-lg p-2 my-4 min-w-full">
             <h2 className="text-white text-center">Cloud Coverage</h2>
-            <div id="map" className="min-w-80 min-h-80"/>
+            <div id="map" className="max-w-[90vw] min-w-[85vw] min-h-[40vh]"/>
         </div>
     );
 }
