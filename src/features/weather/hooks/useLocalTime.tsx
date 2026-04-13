@@ -17,7 +17,7 @@ export function useLocalTime() {
     }, [selectedCity?.timezone]);
 
     function isDaytime(time: string): boolean {
-        const hour = parseInt(time.split(':')[0], 10);
+        const hour = parseInt(time.slice(11,13));
         return hour >= 6 && hour < 18;
     }
 
