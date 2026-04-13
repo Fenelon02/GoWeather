@@ -13,6 +13,7 @@ export async function getWeather(latitude: number, longitude: number): Promise<W
             daily: ["temperature_2m_max", "temperature_2m_min", "sunrise", "sunset", "uv_index_max", "precipitation_probability_max"],
             hourly: "temperature_2m",
             current: ["temperature_2m", "relative_humidity_2m", "apparent_temperature", "wind_speed_10m", "cloud_cover"],
+            timezone: "auto"
         };
         
         const response = await axios.get<WeatherData>(url, { params: Params, timeout: 10000 });

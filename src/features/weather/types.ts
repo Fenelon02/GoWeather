@@ -78,7 +78,12 @@ export type weatherParams = {
     daily:  string | string[];
     hourly: string | string[];
     current: string | string[];
+    timezone: string;
 }
+
+{/*the type of the icons*/}
+
+export type WeatherIconType = { [key: string]: React.ComponentType<React.SVGProps<SVGSVGElement>> };
 
 {/*the context data type*/}
 
