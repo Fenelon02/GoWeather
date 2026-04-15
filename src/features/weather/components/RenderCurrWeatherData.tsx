@@ -34,6 +34,13 @@ export function RenderCurrWeatherData(){
                     </div>
                 </div>
             }
+
+            {isLoading && <div className="
+            flex h-[20vh] justify-center items-center
+          bg-white/20 w-[90vw] rounded-lg">Loading current weather data...</div>}
+            {error && <div className="
+            flex h-[20vh] justify-center items-center
+            bg-white/20 w-[90vw] rounded-lg">Error occurred while fetching current weather data.</div>}
         </div>
     )
 }

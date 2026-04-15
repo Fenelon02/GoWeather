@@ -23,14 +23,14 @@ export function RenderTemperatureByHour() {
     }, [data, localTime]);
 
     return (
-        <div className="flex overflow-y-scroll max-w-[90vw] min-w-[80vw] max-h-[25vh] bg-white/20 p-4 rounded-lg">
+        <div className="flex overflow-y-scroll w-[90vw] max-h-[25vh] bg-white/20 p-4 rounded-lg">
             <div className="flex">
                 {hourlyTemp.length > 0 && hourlyTemp.map((temp, index) => {
                     
                     const Icon = GetIcon(temp.precipitation_probability, (isDaytime(temp.date)));
 
                     return (
-                        <div key={index} className="p-2 mx-2">
+                        <div key={index} className="py-1 mx-2 justify-center items-center flex flex-col gap-2">
                             {temp.date.slice(11,16)}
                             <Icon/> 
                             {temp.temperature}°C
@@ -38,8 +38,8 @@ export function RenderTemperatureByHour() {
                     )
                 })}
             </div>
-            {isLoading && <p>Loading hourly temperature data...</p>}
-            {error && <p>Error occurred while fetching hourly temperature data.</p>}
+            {isLoading && <div className="flex justify-center items-center h-full">Loading hourly temperature data...</div>}
+            {error && <div className="flex justify-center items-center h-full">Error occurred while fetching hourly temperature data.</div>}
         </div>
     )
 }
