@@ -45,7 +45,10 @@ export function RenderLocationsOptions() {
             {geocodingData?.results &&  (
                 <div>
                     {geocodingData.results.map((loc, index) => (
-                        <div key={index} className="my-4 p-4 border border-white cursor-pointer " onClick={() => {
+                        <div key={index} className="
+                        my-4 p-2 border border-white/40
+                        rounded-lg bg-white/5 cursor-pointer "
+                        onClick={() => {
                                 setSelectedCity(loc);
                                 setSeacrhCityGeocodingData('')
                             }}>
@@ -54,8 +57,8 @@ export function RenderLocationsOptions() {
                     ))}
                 </div>
             )}
-            {isLoading && <p>Loading...</p>}
-            {error && <p>Error: {error.message}</p>}
+            {isLoading && <p className="text-center my-4">Loading...</p>}
+            {error && <p className="text-center my-4">Error: {error.message}</p>}
         </div>
     )
 }
