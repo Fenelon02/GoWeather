@@ -30,6 +30,8 @@ export type currentUnits ={
     apparent_temperature: string;
     wind_speed_10m: string;
     cloud_cover: string;
+    precipitation: string
+    is_day: string
 }
 
 export type currentWeather = {
@@ -40,16 +42,20 @@ export type currentWeather = {
     apparent_temperature: number;
     wind_speed_10m: number;
     cloud_cover: number;
+    precipitation: number
+    is_day: number
 }
 
 export type hourlyUnits = {
     time: string;
     temperature_2m: string;
+    precipitation_probability: string
 }
 
 export type hourlyWeather = {
     time: string[];
     temperature_2m: number[];
+    precipitation_probability: string[]
 }
 
 export type dailyUnits = {
@@ -95,4 +101,15 @@ export interface WeatherContextType {
 
 export type WeatherProviderProps = {
     children: React.ReactNode;
+}
+
+{/* the weekly data response normalized */}
+export type DailyWeatherEntry = {
+    time: string;
+    temperature_2m_max: number;
+    temperature_2m_min: number;
+    sunrise: string;
+    sunset: string;
+    uv_index_max: number;
+    precipitation_probability_max: number;
 }
