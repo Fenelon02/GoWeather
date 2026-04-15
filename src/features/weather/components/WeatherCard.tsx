@@ -28,7 +28,7 @@ export default function WeatherCard() {
                         <div className="col-span-1 flex flex-col items-left justify-center">
                             <h2 className="font-bold text-2xl">{getSelectedCity()?.name}</h2>
                             <p className="font-medium text-xl">{data.current.temperature_2m}°C</p>
-                            <p className="font-medium text-lg">{minTemperature}°C - {maxTemperature}°C</p>
+                            <div className="font-medium text-lg flex"> <p className="font-bold">{maxTemperature}°C</p> - {minTemperature}°C</div>
                         </div>
                     </div>
                 );
