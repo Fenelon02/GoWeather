@@ -36,7 +36,7 @@ export function RenderWeeklyTemperature(){
 
                     return(
                         <div key={index} className="grid grid-cols-3 pt-2 text-sm">
-                            <div className="flex gap-x-3 gap-y-1">
+                            <div className="flex gap-1 min-w-fit">
                                 <div>{item.time.slice(5)}</div>
                                 <div className="flex">
                                     <p className="font-bold">{item.temperature_2m_max}°/</p>
