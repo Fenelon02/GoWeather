@@ -4,6 +4,7 @@ import { useSelectedCity } from "../hooks/useSelectedCity";
 import { useSearchGeocodingLocation } from "../hooks/useSearchGeocodingLocation";
 import { useEffect } from "react";
 import { Location } from "../types";
+import Skeleton from "react-loading-skeleton";
 
 export function RenderLocationsOptions() {
     const { setSelectedCity, getSelectedCity } = useSelectedCity();
@@ -47,7 +48,8 @@ export function RenderLocationsOptions() {
                     {geocodingData.results.map((loc, index) => (
                         <div key={index} className="
                         my-4 p-2 border border-white/40
-                        rounded-lg bg-white/5 cursor-pointer "
+                        rounded-lg bg-white/5 cursor-pointer 
+                        hover:bg-white/20"
                         onClick={() => {
                                 setSelectedCity(loc);
                                 setSeacrhCityGeocodingData('')
@@ -57,7 +59,13 @@ export function RenderLocationsOptions() {
                     ))}
                 </div>
             )}
-            {isLoading && <p className="text-center my-4">Loading...</p>}
+            {isLoading && <div className="text-center my-4">
+                {Array.from({ length: 5 }).map((_, index) => (
+                    <div key={index} className="w-full my-4">
+                        <Skeleton width="100%" className="h-10" />
+                    </div>
+                ))}
+            </div>}
             {error && <p className="text-center my-4">Error: {error.message}</p>}
         </div>
     )

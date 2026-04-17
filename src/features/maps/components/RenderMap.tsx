@@ -9,12 +9,12 @@ export function RenderMap() {
     const isDaytimeState = localTime ? isDaytime(localTime) : false;
 
     return (
-        <div className="bg-white/20 rounded-lg p-2 min-w-full">
+        <div className="bg-white/20 rounded-lg p-2 w-[90vw]">
             <h2 className={`
                 text-center ${isDaytimeState ? "  text-black" 
-                : " text-white"} py-1`}
+                : " text-white"} py-1 md:text-xl`}
             >Cloud Coverage</h2>
-            <div id="map" className="max-w-[90vw] min-w-[85vw] min-h-[40vh]"/>
+            <div id="map" className="max-w-[90vw] min-h-[40vh]"/>
         </div>
     );
 }
