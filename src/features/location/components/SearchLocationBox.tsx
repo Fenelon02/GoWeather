@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 import { RenderLocationsOptions } from "./RenderLocationsOptions";
 import { useSearchGeocodingLocation } from "../hooks/useSearchGeocodingLocation";
 
@@ -13,13 +13,15 @@ export function SearchLocationBox() {
     }
 
     return (
-        <div className="max-w-[90vw] min-w-[85vw]">
+        <div className="w-[90vw] min-w-[85vw]">
             <div className="bg-white/20 rounded-lg">
                 <input className="
-                p-2 
-                focus:outline-none focus:ring-0 focus:border-none 
-                hover:outline-none hover:ring-0 hover:border-none"
-                type="text" placeholder="Rio de Janeiro" 
+                p-2 rounded-lg bg-transparent w-full
+                focus:outline-none focus:ring-0 focus:border-0 
+                focus:shadow-lg 
+                hover:outline-none hover:ring-0 hover:border-0 
+                hover:shadow-lg"
+                type="text" placeholder="Berlin" 
                 onChange={searchGeogocodingData}/>
             </div>
             <RenderLocationsOptions/>
