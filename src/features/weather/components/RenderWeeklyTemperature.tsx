@@ -4,6 +4,7 @@ import { useLocalTime } from "../hooks/useLocalTime";
 import { DailyWeatherEntry } from "../types"
 import { GetWeatherIcon } from "../hooks/useWeatherIcon";
 import { Droplet } from "lucide-react"
+import Skeleton from "react-loading-skeleton";
 
 
 export function RenderWeeklyTemperature(){
@@ -28,14 +29,16 @@ export function RenderWeeklyTemperature(){
     }, [data, localTime])
     
     return(
-        <div className="bg-white/20 p-5 min-w-[85vw] max-w-[90vw] rounded-lg">
+        <div className="bg-white/20 p-5 w-[90vw] rounded-lg">
             {weeklyTemp.length > 0 && weeklyTemp && 
             <div className={` ${isDaytimeState ? "text-black" : "text-white"}`}>{
                 weeklyTemp.map((item, index) => {
                     const Icon = GetIcon(item.precipitation_probability_max, true);
 
                     return(
-                        <div key={index} className="grid grid-cols-3 pt-2 text-sm">
+                        <div key={index} className="grid grid-cols-3 pt-2 text-sm
+                        md:text-xl
+                        ">
                             <div className="flex gap-1 min-w-fit">
                                 <div>{item.time.slice(5)}</div>
                                 <div className="flex">
@@ -44,16 +47,23 @@ export function RenderWeeklyTemperature(){
                                 </div>
                             </div>
                             <div className="flex justify-center">
-                               <Icon/> 
+                               <Icon className="md:h-8 md:w-8"/> 
                             </div>
-                            <div className="flex justify-end">
-                                <Droplet />{item.precipitation_probability_max}%
+                            <div className="flex justify-end
+                            md:text-xl
+                            ">
+                                <Droplet className="md:h-8 md:w-8"/>
+                                {item.precipitation_probability_max}%
                             </div>
                         </div>
                     )
                 })
             }</div>}
-            {isLoading && <div className={`${isDaytimeState ? "text-black" : "text-white"}`}>Loading Weekly Temperature</div>}
+
+            {isLoading && <div className="flex h-[20vh] justify-center items-center w-[90vw] rounded-lg">
+                <Skeleton width="100%" height="100%" />
+            </div>}
+
             {error && <div className={`${isDaytimeState ? "text-black" : "text-white"}`}>Error fetching data</div>}
         </div>
     )
