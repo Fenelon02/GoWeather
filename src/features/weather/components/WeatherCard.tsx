@@ -17,7 +17,9 @@ export default function WeatherCard() {
     const maxTemperature = Math.max(...(data?.daily.temperature_2m_max || []));
 
     return (
-        <div className="h-[40vh] w-[90vw] flex justify-center items-center flex-col">
+        <div className="h-[40vh] w-[90vw] flex justify-center items-center flex-col
+        lg:w-[60vw]
+        ">
             {data && (() => {
 
                 const Icon = GetIcon(data.current.cloud_cover,isDay);

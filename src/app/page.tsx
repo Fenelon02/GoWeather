@@ -8,27 +8,35 @@ import { RenderTemperatureByHour } from "../features/weather/components/RenderTe
 import { RenderWeeklyTemperature } from "../features/weather/components/RenderWeeklyTemperature";
 import { RenderCurrWeatherData } from "../features/weather/components/RenderCurrWeatherData";
 import { Footer } from '../ui/Footer'
-import 'react-loading-skeleton/dist/skeleton.css'
 import { SkeletonTheme } from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function Home() {
   const { localTime, isDaytime } = useLocalTime();
   const isDaytimeState = localTime ? isDaytime(localTime) : false;
 
   return (
-    <SkeletonTheme baseColor={isDaytimeState ? "#f0f0f0" : "#1e3a8a"}
-      highlightColor={isDaytimeState ? "#e0e0e0" : "#3b82f6"}>
-      <div className={`px-15 flex flex-col items-center justify-center
+    <SkeletonTheme 
+      baseColor={isDaytimeState ? "#f0f0f0" : "#1e3a8a"}
+      highlightColor={isDaytimeState ? "#e0e0e0" : "#3b82f6"}
+    >
+
+      <div className={`
+        px-15 flex flex-col items-center justify-center
         ${isDaytimeState ? 'bg-linear-to-b from-sky-300 to-yellow-200 text-black'
           : 'bg-linear-to-b from-blue-950 to-blue-700 text-white'}
-        min-h-screen max-w-screen py-15 gap-4`}>
+        min-h-screen max-w-screen py-10 gap-4`}>
+
         <WeatherCard />
         <RenderTemperatureByHour />
         <RenderCurrWeatherData/>
-        <RenderMap />
-        <RenderWeeklyTemperature />
+        <div className="grid lg:grid-cols-2 lg:w-[60vw] gap-4">
+          <RenderMap />
+          <RenderWeeklyTemperature />
+        </div>
         <SearchLocationBox />
         <Footer/>
+
       </div>
     </SkeletonTheme>
   );

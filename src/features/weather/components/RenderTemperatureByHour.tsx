@@ -24,7 +24,12 @@ export function RenderTemperatureByHour() {
     }, [data, localTime]);
 
     return (
-        <div className="flex w-[90vw] max-h-[25vh] bg-white/20 p-4 rounded-lg">
+        <div className="
+        flex w-[90vw] 
+        max-h-[25vh] bg-white/20 
+        p-4 rounded-lg
+        lg:w-[60vw]
+        ">
             <div className="flex overflow-x-scroll">
                 {hourlyTemp.length > 0 && hourlyTemp.map((temp, index) => {
                     
@@ -46,7 +51,7 @@ export function RenderTemperatureByHour() {
             </div>
 
             {isLoading && 
-                <div className="flex justify-between min-w-full">
+                <div className="flex justify-between min-w-full overflow-x-scroll">
                         {Array.from({ length: 23 }).map((_, index) => (
                         <div key={index} className="
                             py-1 mx-2 justify-center 

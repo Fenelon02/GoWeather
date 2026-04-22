@@ -29,15 +29,27 @@ export function RenderWeeklyTemperature(){
     }, [data, localTime])
     
     return(
-        <div className="bg-white/20 p-5 w-[90vw] rounded-lg">
+        <div className="
+       bg-white/20 p-5 
+        w-[90vw] rounded-lg
+        lg:w-full
+        lg:h-full   
+        lg:flex
+        lg:justify-center
+        lg:items-center
+        lg:overflow-y-auto 
+        ">
             {weeklyTemp.length > 0 && weeklyTemp && 
-            <div className={` ${isDaytimeState ? "text-black" : "text-white"}`}>{
+            <div className={`h-full w-full ${isDaytimeState ? "text-black" : "text-white"}`}>{
                 weeklyTemp.map((item, index) => {
                     const Icon = GetIcon(item.precipitation_probability_max, true);
 
                     return(
-                        <div key={index} className="grid grid-cols-3 pt-2 text-sm
+                        <div key={index} className="
+                        grid grid-cols-3 
+                        pt-2 text-sm
                         md:text-xl
+                        lg:py-3
                         ">
                             <div className="flex gap-1 min-w-fit">
                                 <div>{item.time.slice(5)}</div>
@@ -46,9 +58,11 @@ export function RenderWeeklyTemperature(){
                                     <p>{item.temperature_2m_min}°</p>
                                 </div>
                             </div>
+
                             <div className="flex justify-center">
                                <Icon className="md:h-8 md:w-8"/> 
                             </div>
+
                             <div className="flex justify-end
                             md:text-xl
                             ">
@@ -60,10 +74,10 @@ export function RenderWeeklyTemperature(){
                 })
             }</div>}
 
-            {isLoading && <div className="flex flex-col justify-center items-center w-full">
+            {isLoading && <div className="flex flex-col justify-center items-center w-full h-full">
                 {[...Array(7)].map((_, i) => (
-                    <div key={i} className="w-full">
-                        <Skeleton height={30} width={'100%'} className="mb-2" />
+                    <div key={i} className="w-full h-full rounded-lg ">
+                        <Skeleton height={30} width={'100%'} className="mb-2 lg:mb-0" />
                     </div>
                 ))}
             </div>}
