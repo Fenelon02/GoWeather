@@ -8,8 +8,11 @@ export function RenderCurrWeatherData() {
     return (
         <div className="h-[20vh]">
             {data &&
-                <div className="grid grid-cols-2
-                w-[90vw] gap-4 min-h-[20vh]">
+                <div className="
+                grid grid-cols-2
+                w-[90vw] gap-4 min-h-full
+                lg:w-[60vw]
+                ">
 
                     <div className="flex justify-center items-center
                     bg-white/20 rounded-lg
@@ -56,22 +59,24 @@ export function RenderCurrWeatherData() {
             }
 
             {isLoading && <div className="
-            grid grid-cols-2 h-[20vh] justify-center items-center
-            w-[90vw] rounded-lg
-            gap-4
+            grid grid-cols-2 h-[20vh]
+            justify-center items-center
+            w-[90vw] rounded-lg gap-4
+            lg:w-[60vw]
             ">
                 <div className="h-full w-full">
-                    <Skeleton width="100%" height="100%"/>
+                    <Skeleton width="100%" height="100%" className="rounded-lg"/>
                 </div>
-                <div className="h-full w-full">
-                    <Skeleton width="100%" height="45%" />
-                    <Skeleton width="100%" height="45%" />
+                <div className="grid grid-rows-2 gap-4 w-full h-full">
+                    <Skeleton width="100%" height="100%" className="rounded-lg"/>
+                    <Skeleton width="100%" height="100%" className="rounded-lg"/>
                 </div>
             </div>}
 
             {error && <div className="
             flex h-[20vh] justify-center items-center
-            bg-white/20 w-[90vw] rounded-lg">Error occurred while fetching current weather data.</div>}
+            bg-white/20 w-[90vw] rounded-lg">
+                Error occurred while fetching current weather data.</div>}
         </div>
     )
 }
