@@ -13,8 +13,11 @@ export function SearchLocationBox() {
     }
 
     return (
-        <div className="w-[90vw] min-w-[85vw]">
-            <div className="bg-white/20 rounded-lg">
+        <div className="
+        w-[90vw]
+        lg:w-[60vw]
+        ">
+            <div className="bg-white/20 rounded-lg ">
                 <input className="
                 p-2 rounded-lg bg-transparent w-full
                 focus:outline-none focus:ring-0 focus:border-0 
