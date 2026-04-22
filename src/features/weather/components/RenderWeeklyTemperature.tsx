@@ -60,8 +60,12 @@ export function RenderWeeklyTemperature(){
                 })
             }</div>}
 
-            {isLoading && <div className="flex h-[20vh] justify-center items-center w-[90vw] rounded-lg">
-                <Skeleton width="100%" height="100%" />
+            {isLoading && <div className="flex flex-col justify-center items-center w-full">
+                {[...Array(7)].map((_, i) => (
+                    <div key={i} className="w-full">
+                        <Skeleton height={30} width={'100%'} className="mb-2" />
+                    </div>
+                ))}
             </div>}
 
             {error && <div className={`${isDaytimeState ? "text-black" : "text-white"}`}>Error fetching data</div>}
